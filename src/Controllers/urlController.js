@@ -90,7 +90,7 @@ const createShortUrl = async function(req,res){
     const createUrl = await urlModel.create(finalData)
 
     if(createUrl) {
-        await SET_ASYNC (`${longUrl}`, JSON.stringify(finalData))
+        // await SET_ASYNC (`${longUrl}`, JSON.stringify(finalData))
         await SET_ASYNC (`${urlCode}`, JSON.stringify(longUrl))
         res.status(201).send({status:true,data:finalData})
     }
